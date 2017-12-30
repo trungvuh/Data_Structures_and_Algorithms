@@ -1,3 +1,3 @@
 # README
 
-My place for practicing Data Structures and Algorithms problems.
+My place for practicing Data Structures and Algorithm problems.

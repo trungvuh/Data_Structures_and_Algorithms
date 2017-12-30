@@ -21,12 +21,16 @@ class QueueWithMax
 
     if (@max_queue.length == 0) || (@max_queue[0] < val)
       @max_queue = [val]
-      p 'if less than'
-      p @max_queue
     else
-      @max_queue.push(val)
-      p 'if not'
-      p @max_queue
+      (@max_queue.length + 1).times do |i|
+        if @max_queue[i] == nil || @max_queue[i] < val
+          @max_queue[i] = val
+          break
+        else
+          next
+        end
+      end
+      @max_queue
     end
   end
 
@@ -44,6 +48,4 @@ class QueueWithMax
   def length
     @store.length
   end
-
-
 end
