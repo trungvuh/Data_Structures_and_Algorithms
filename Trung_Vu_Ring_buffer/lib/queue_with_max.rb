@@ -26,7 +26,7 @@ class QueueWithMax
         if @max_queue[i] == nil || @max_queue[i] < val
           @max_queue[i] = val
           break
-        else
+        else #if @max_queue[i] > val => keep going
           next
         end
       end
