@@ -12,8 +12,8 @@ class QueueWithMax
   attr_accessor :store
 
   def initialize
-    @store = RingBuffer.new()
-    @max_queue = RingBuffer.new()
+    @store = RingBuffer.new
+    @max_queue = RingBuffer.new
   end
 
   def enqueue(val)
