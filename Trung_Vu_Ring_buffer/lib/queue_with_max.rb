@@ -16,22 +16,38 @@ class QueueWithMax
     @max_queue = RingBuffer.new
   end
 
-  def enqueue(val)
+  def enqueue(val) #need to check for edge cases when we have more than 1 max of the same value.
     @store.push(val)
 
     if (@max_queue.length == 0) || (@max_queue[0] < val)
-      @max_queue = [val]
-    else
-      (@max_queue.length + 1).times do |i|
-        if @max_queue[i] == nil || @max_queue[i] < val
-          @max_queue[i] = val
-          break
-        else #if @max_queue[i] > val => keep going
-          next
+      @max_queue = [val] #when val is a new max, replace => O(1) time
+    elsif @max_queue.last > val
+      @max_queue.push(val) #when val is less than the last item, push in => O(1) time
+    elsif val <= @max_queue.first && val > @max_queue.last
+      @max_queue.length.times do
+        if @max_queue.last < val
+          @max_queue.pop
+        else
+          @max_queue.push(val)
+          return
         end
       end
-      @max_queue
     end
+
+
+    # if (@max_queue.length == 0) || (@max_queue[0] < val)
+    #   @max_queue = [val]
+    # else
+    #   (@max_queue.length + 1).times do |i|
+    #     if @max_queue[i] == nil || @max_queue[i] < val
+    #       @max_queue[i] = val
+    #       break
+    #     else #if @max_queue[i] > val => keep going
+    #       next
+    #     end
+    #   end
+    #   @max_queue
+    # end
   end
 
   def dequeue
