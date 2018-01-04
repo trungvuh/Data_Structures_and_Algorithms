@@ -7,20 +7,33 @@ class BinaryMinHeap
   end
 
   def count
+    @store.length
   end
 
   def extract
+    #swap the first and last item
+    @store[0], @store[count - 1] = @store[count - 1], @store[0]
+    #extract the last item
+    last = @store.pop
+    #rearrange the heap
+    self.class.heapify_down(@store, 0, count)
+    last
   end
 
   def peek
   end
 
+  #best case: O(1), worst case: O(log(n))
   def push(val)
+    @store.push(val)
+    self.class.heapify_up(@store, count - 1, count)
   end
 
   def [](val)
     @store[val]
   end
+
+  public
 
   def self.child_indices(len, parent_index)
     children = []
@@ -77,7 +90,7 @@ class BinaryMinHeap
   end
 
   def self.heapify_up(array, child_idx, len = array.length, &prc)
-    return array if child_idx == 0
+    return array if child_idx == 0 #this is when reaching the root.
     prc = prc || Proc.new { |a,b| a <=> b }
 
     parent_idx = parent_index(child_idx)
