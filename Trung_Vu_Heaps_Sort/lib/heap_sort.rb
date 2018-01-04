@@ -21,3 +21,5 @@ class Array
     self
   end
 end
+
+# Time complexity is O(nlogn). The reason is the outer loop run in O(n) time, while the inner loop (the heapify process) run in O(logn) time - since we only do at most logn steps.
