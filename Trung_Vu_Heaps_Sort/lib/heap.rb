@@ -16,7 +16,7 @@ class BinaryMinHeap
     #extract the last item
     last = @store.pop
     #rearrange the heap
-    self.class.heapify_down(@store, 0, count)
+    self.class.heapify_down(@store, 0, &prc)
     last
   end
 
@@ -26,7 +26,7 @@ class BinaryMinHeap
   #best case: O(1), worst case: O(log(n))
   def push(val)
     @store.push(val)
-    self.class.heapify_up(@store, count - 1, count)
+    self.class.heapify_up(@store, count - 1, &prc)
   end
 
   def [](val)
@@ -86,12 +86,12 @@ class BinaryMinHeap
     array[parent_idx], array[min_child_idx] = array[min_child_idx], array[parent_idx]
 
     # continue swapping that "parent", now standing at min_child_idx
-    self.heapify_down(array, min_child_idx, array.length, &prc)
+    self.heapify_down(array, min_child_idx, len, &prc)
   end
 
   def self.heapify_up(array, child_idx, len = array.length, &prc)
     return array if child_idx == 0 #this is when reaching the root.
-    prc = prc || Proc.new { |a,b| a <=> b }
+    prc = prc || Proc.new { |a, b| a <=> b }
 
     parent_idx = parent_index(child_idx)
 
