@@ -10,7 +10,7 @@ def k_largest_elements(array, k)
 
   result = []
   # this is the sort step
-  k.times do |i|
+  k.times do
     # swap first and last item
     size = array.length
     array[0], array[size - 1] = array[size - 1], array[0]
