@@ -20,6 +20,7 @@ class QuickSort
   def self.sort2!(array, start = 0, length = array.length, &prc)
     prc ||= Proc.new { |x, y| x <=> y }
     return array if length <= 1
+    #pass in the entire array, but only partition from the starting point upto the length that we want.
     pivot_idx = self.partition(array, start, length, &prc)
 
     sort2!(array, start, pivot_idx - start, &prc)
@@ -29,6 +30,9 @@ class QuickSort
 
   def self.partition(array, start, length, &prc)
     prc ||= Proc.new { |x, y| x <=> y }
+
+    # new_pivot = start + rand(array.length)
+    # array[start], array[new_pivot] = array[new_pivot], array[start]
 
     pointer = start
     pivot = array[start]

@@ -20,6 +20,7 @@
     + TC: Best case is O(nlogn) for, worst case O(n^2). Quick Sort is highly depended on the selection of key/ pivot point, but amortized out to O(nlogn)
     + SC: In-place Quick Sort is O(logn) for best case, and O(n) for worst case, when the array is sorted and we need n stack frames for the recursive call.
     + Unstable (for in-place), Stable for naive.
+    + Why Quick Sort is better: because in the consideration of nlogn time, we ignore a lot of other coefficient, so in real practice, even though they are both O(nlogn), Quick Sort produces "better" O(nlogn) than Merge Sort produces.
 
 **Length vs. Count:** count is an enumerable, while length is actually constant time.
 
