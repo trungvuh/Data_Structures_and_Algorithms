@@ -22,6 +22,17 @@
     + Unstable (for in-place), Stable for naive.
     + Why Quick Sort is better: because in the consideration of nlogn time, we ignore a lot of other coefficient, so in real practice, even though they are both O(nlogn), Quick Sort produces "better" O(nlogn) than Merge Sort produces.
 
+
+**Search:**
+
+  - **Depth First Search:**
+
+  - **Breadth First Search:**
+
+  - **Binary Search Tree:**
+    +
+    + Hibbard Deletion
+
 **Length vs. Count:** count is an enumerable, while length is actually constant time.
 
 **Heap**: anytime we need to deal with min and max queue. And because heap is log(n) time, whereas other finding min-max will result in linear time complexity. When the subset that we wanna merge is already sorted, then using heap the heap
