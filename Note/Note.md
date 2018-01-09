@@ -22,6 +22,14 @@
     + Unstable (for in-place), Stable for naive.
     + Why Quick Sort is better: because in the consideration of nlogn time, we ignore a lot of other coefficient, so in real practice, even though they are both O(nlogn), Quick Sort produces "better" O(nlogn) than Merge Sort produces.
 
+  - **Topological Sort:**
+    + TC: Best case O(v + e) where v is # of vertices and e is # of edges. Worst case: O(v^2)
+    + Use case:
+      * Task dependency
+      * Webpack, File/ Library dependency
+      * Schedule tasks given scheduling restriction
+      * Minimal spanning tree
+
 
 **Search:**
 
