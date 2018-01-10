@@ -29,3 +29,12 @@ def install_order(arr)
   topological_sort(vertices).map(&:value)
 
 end
+
+# def install_order_2(arr)
+#   vertices = Set.new
+#   vertices = arr.map { |tuple| Vertices.new(tuple[1]) if tuple[1] }
+#
+#   arr.each do |tuple|
+#
+#   end
+# end

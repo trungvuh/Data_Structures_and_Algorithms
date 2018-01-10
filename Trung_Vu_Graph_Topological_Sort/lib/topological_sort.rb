@@ -20,13 +20,27 @@ def topological_sort(vertices)
       queue << outer_vertex if outer_vertex.in_edges.empty?
     end
   end
-  # if successfully remove all vertices => the list will hold all the vertices => same length
-  return list if list.length == vertices.length
-  # else, it is not succeeded
-  []
+  # if successfully remove all vertices => the list will hold all the vertices => same length, else, it is not succeeded
+  list.length == vertices.length ? list : []
 end
 
 # Tarjan's Algorithm
 # def topological_sort(vertices)
+#   ordering = []
+#   explored = Set.new
 #
+#   vertices.each do |vertex|
+#     dfs!(vertex, explored, ordering) unless explored.include?(vertex)
+#   end
+# end
+#
+# def dfs!(vertex, explored, ordering)
+#   explored.add(vertex)
+#
+#   vertex.out_edges.each do |edge|
+#     new_vertex = edge.to_vertex
+#     dfs!(new_vertex, explored, ordering) unless explored.include?(new_vertex)
+#   end
+#
+#   ordering.unshift(vertex)
 # end
