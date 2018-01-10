@@ -47,8 +47,8 @@ class DynamicProgramming
     (4..n).each do |i| #O(n)
       frog_cache[i] = []
       (1..3).each do |j|
-        frog_cache[i - j].each do |el1| #actually this is only 3 times
-          frog_cache[j].each do |el2| #this is also only 3 times. May not be that bad
+        frog_cache[i - j].each do |el1|
+          frog_cache[j].each do |el2| 
             frog_cache[i] << el1 + el2
           end
         end
