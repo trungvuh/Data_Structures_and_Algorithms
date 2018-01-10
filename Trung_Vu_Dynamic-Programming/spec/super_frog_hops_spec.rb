@@ -21,7 +21,7 @@ describe 'Super Frog Hops' do
     expect(dp.super_frog_hops(10, 4).sort).to eq(ans2)
   end
 
-  it 'handles cases where n > k' do
+  it 'handles cases where n < k' do
     expect(dp.super_frog_hops(2, 5).sort).to eq([[1, 1], [2]])
     expect(dp.super_frog_hops(3, 10).sort).to eq([[1, 1, 1], [1, 2], [2, 1], [3]])
   end
