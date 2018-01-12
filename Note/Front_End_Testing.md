@@ -21,3 +21,8 @@
 
 null = absent of value
 undefined = absent of initialization
+
+fetch-mock is using a fetch library
+redux mock store if just a fake mockStore
+
+What should we test: Model test, controller test, reducer, action creator, components
