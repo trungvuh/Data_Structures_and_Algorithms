@@ -8,32 +8,9 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
+
+// O(n) time
 function anagrams(stringA, stringB) {
-  // strA = stringA.replace(/[^\w]/g, "").toLowerCase();
-  // strB = stringB.replace(/[^\w]/g, "").toLowerCase();
-  
-  // if (strA.length != strB.length) return false;
-
-  // let counterHashA = {};
-  // let counterHashB = {};
-
-  // for (const element of strA) {
-  //   if (counterHashA[element]) {
-  //     counterHashA[element] += 1;
-  //   }
-  //   else {
-  //     counterHashA[element] = 1;
-  //   }
-  // }
-
-  // for (const element of strB) {
-  //   if (counterHashB[element]) {
-  //     counterHashB[element] += 1;
-  //   }
-  //   else {
-  //     counterHashB[element] = 1;
-  //   }
-  // }
 
   counterA = counterHash(stringA);
   counterB = counterHash(stringB);
