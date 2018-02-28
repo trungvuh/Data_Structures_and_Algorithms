@@ -23,39 +23,39 @@ function matrix(n) {
   }
 
   let counter = 1;
-  let start_row = 0;
-  let start_col = 0;
-  let end_row = n - 1;
-  let end_col = n - 1;
+  let startRow = 0;
+  let startCol = 0;
+  let endRow = n - 1;
+  let endCol = n - 1;
 
   //we can also do while (counter <= n**2), notice the counter run from 1=>n square
-  while (start_col <= end_col && start_row <= end_row) {
+  while (startCol <= endCol && startRow <= endRow) {
     // this is the top side of the matrix
-    for (let i = start_col; i <= end_col; i++) {
-      result[start_row][i] = counter;
+    for (let i = startCol; i <= endCol; i++) {
+      result[startRow][i] = counter;
       counter++;
     }
-    start_row++; //we are done with the top side
+    startRow++; //we are done with the top side
 
     //this is for the right side
-    for (let i = start_row; i <= end_row; i++) {
-      result[i][end_col] = counter;
+    for (let i = startRow; i <= endRow; i++) {
+      result[i][endCol] = counter;
       counter++;
     }
-    end_col--; //we are done with the right side
+    endCol--; //we are done with the right side
 
     //this is for the bottom side
-    for (let i = end_col; i >= start_col; i--) {
-      result[end_row][i] = counter;
+    for (let i = endCol; i >= startCol; i--) {
+      result[endRow][i] = counter;
       counter++;
     }
-    end_row--; //we are done with the bottom side
+    endRow--; //we are done with the bottom side
 
-    for (let i = end_row; i >= start_row; i--) {
-      result[i][start_col] = counter;
+    for (let i = endRow; i >= startRow; i--) {
+      result[i][startCol] = counter;
       counter++;
     }
-    start_col++;
+    startCol++;
   }
 
   return result;
