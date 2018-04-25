@@ -8,14 +8,13 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-
 // O(n) time
 function anagrams(stringA, stringB) {
+  var counterA = counterHash(stringA);
+  var counterB = counterHash(stringB);
 
-  counterA = counterHash(stringA);
-  counterB = counterHash(stringB);
-  
-  if (Object.keys(counterA).length != Object.keys(counterB).length) return false;
+  if (Object.keys(counterA).length !== Object.keys(counterB).length)
+    return false;
 
   for (const char in counterA) {
     if (counterA[char] !== counterB[char]) {
@@ -27,15 +26,15 @@ function anagrams(stringA, stringB) {
 }
 
 function counterHash(string) {
-  const counterHash = {};
+  const counter = {};
 
-  str = string.replace(/[^\w]/g, "").toLowerCase();
-  
+  var str = string.replace(/[^\w]/g, '').toLowerCase();
+
   for (const element of str) {
-    counterHash[element] = counterHash[element] + 1 || 1
+    counter[element] = counter[element] + 1 || 1;
   }
 
-  return counterHash;
+  return counter;
 }
 
 module.exports = anagrams;
